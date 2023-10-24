@@ -1,3 +1,5 @@
+from zenml.config.docker_settings import SourceFileMode
+
 from steps.best_model_selector import best_model_selector
 from steps.register_model import register_model
 from steps.trainers import random_forest_trainer_mlflow, sgd_trainer_mlflow
@@ -7,7 +9,8 @@ from zenml import pipeline
 from zenml.config import DockerSettings
 from zenml.integrations.constants import MLFLOW, SKLEARN
 
-docker_settings = DockerSettings(required_integrations=[MLFLOW, SKLEARN])
+docker_settings = DockerSettings(required_integrations=[MLFLOW, SKLEARN],
+                                 source_files=SourceFileMode.DOWNLOAD)
 
 
 @pipeline(enable_cache=False, settings={"docker": docker_settings})
