@@ -1,0 +1,6 @@
+_assets
+notebooks
+.gitbook
+__pycache__/*
+pipelines/__pycache__/
+steps/__pycache__/
